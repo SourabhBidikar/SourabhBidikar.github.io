@@ -1,12 +1,8 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
-		<title>SQL DATA CLEANING</title>
+		<title>Sales Report with Power BI for Lupin Meds</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -43,14 +39,26 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>RESUME</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<h1><i>Sales Report with Power BI <br />
+										for Lupin Meds</i></h1>
+									<p>Cleaned and extracted necesaary data, worked on data modelling,<br> created useful measures and calculated columns with DAX and developed <br> a comprehensive, interactive and attractive 3 paged power BI report with  <br> drill through capabilities.</p>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+								<div class="image main"><img src="images/salesreport.PNG" alt="" /></div>
+								<b>Dataset:  </b><a href="https://github.com/SourabhBidikar/Portfolio/blob/main/Sales%20Report%20Lupin%20Meds/Lupin%20Meds.xlsx" >&nbsp; Lupin Meds Dataset</a>&nbsp;&nbsp;&nbsp;contains tables like: 
+								<p> <b>Fact table:</b>&nbsp;Sales Details and German Sales details (extracted by me). <br>
+								<b>Dimension tables:</b>&nbsp;Customer Details, Product Details, Region, DimDate (created by me).</p>
+
+
+								<p>Apart from the available data I created different measures to extract needed data from the dataset like: <br>
+								1.&nbsp;&nbsp; Total Sales = SUMX('Sales Details','Sales Details'[Quantity]*'Sales Details'[unit price])<br>2.&nbsp;&nbsp; Total Cost = SUMX('Sales Details','Sales Details'[Quantity]*'Sales Details'[unit cost]) <br>3.&nbsp;&nbsp;Profit margin= DIVIDE([Total Profit],[Total Sales]) <br> <br>
+								Year wise Sales using: <br>1.&nbsp;&nbsp;Sales 2019 = CALCULATE([Total Sales],FILTER(Date,Date[Year]=2019)) <br>2.&nbsp;&nbsp;Sales 2020 = CALCULATE([Total Sales],FILTER(Date,Date[Year]=2020)) <br><br>For Top 10 products using DAX: <br>Top 10 Products= CALCULATE([Total Sales), FILTER(Values('product details'[product name]),<br> IF(RANKX(ALL('product details'[product name],[Total Sales], , Desc)<=10,[Total Sales], Blank())).<br> Similarly created many different measures and calculated columns. <br><br><b> Created below star schema data model:</b>   </p>
+								<div class="image main"><img src="images/Data_Model.PNG" alt="" /></div>
+								<p>Using the extracted, celaned and modelled data created a Sales Dashboard with Custome visuals for the slicer (Enlightened World Flag Slicer).</p><div class="image main"><img src="images/salesreport.PNG" alt="" /></div>
+								<p>Using drill through created a report page per product:</p>
+								<div class="image main"><img src="images/Sales Report Per Product Page.PNG" alt="" /></div>
+								<p>I have also created a table for feedback and linked to below visual which stores the fedback as an emoji.</p>
+								<div class="image main"><img src="images/feedback system.PNG" alt="" /></div>
+								<h3>Thanks for going through my Power BI project.</h3>
 							</section>
 
 					</div>
